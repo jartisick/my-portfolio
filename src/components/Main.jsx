@@ -10,7 +10,7 @@ const Main = () => {
   return (
     <div id="home">
       <div className="w-full h-screen text-center">
-        <div className="max-w-[880px] w-full h-full mx-auto p-2 flex justify-center items-center">
+        <div className="max-w-[880px] w-full h-full mx-auto p-2 flex justify-center items-center pt-20">
           <div>
             <h1 className="py-4 text-gray-700">
               Hi, I'm <span className="text-[#5651e5]">José Ángel</span>
