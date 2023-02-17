@@ -1,14 +1,24 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
+import { Link } from "react-scroll/modules";
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);
   // seteamos el estado de la barra de navegación en falso
+
+  const [shadow, setShadow] = useState(false);
+
+  useEffect(() => {
+    const handleShadow = () => {
+      window.scrollY >= 90 ? setShadow(true) : setShadow(false);
+    };
+    window.addEventListener("scroll", handleShadow);
+  }, []);
 
   const handleNav = () => {
     setNav(!nav);
@@ -16,39 +26,83 @@ const NavBar = () => {
   };
 
   return (
-    <div className="fixed w-full h-28 shadow-xl z-[100]">
-      <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
+    <div
+      className={
+        shadow
+          ? "fixed w-full h-28 shadow-xl z-[100]"
+          : "fixed w-full h-28 z-[100]"
+      }
+    >
+      <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16 pl-11">
         <Image
           src="/../public/assets/programacion.png"
           alt="/"
           width="80"
           height="50"
         />
-        <div>
+        <div className="pr-7">
           <ul className="hidden md:flex">
-            <Link href="/">
-              <li className="ml-10 text-base uppercase hover:border-b">Home</li>
-            </Link>
-            <Link href="/about">
-              <li className="ml-10 text-base uppercase hover:border-b">
+            <li className="ml-10 text-sm uppercase hover:border-b">
+              <Link
+                activeClass="active"
+                to="home"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                Home
+              </Link>
+            </li>
+            <li className="ml-10 text-sm uppercase hover:border-b">
+              <Link
+                activeClass="active"
+                to="about"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
                 About
-              </li>
-            </Link>
-            <Link href="/skills">
-              <li className="ml-10 text-base uppercase hover:border-b">
+              </Link>
+            </li>
+            <li className="ml-10 text-sm uppercase hover:border-b">
+              <Link
+                activeClass="active"
+                to="skills"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
                 Skills
-              </li>
-            </Link>
-            <Link href="/projects">
-              <li className="ml-10 text-base uppercase hover:border-b">
+              </Link>
+            </li>
+            <li className="ml-10 text-sm uppercase hover:border-b">
+              <Link
+                activeClass="active"
+                to="projects"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
                 Projects
-              </li>
-            </Link>
-            <Link href="/contact">
-              <li className="ml-10 text-base uppercase hover:border-b">
+              </Link>
+            </li>
+
+            <li className="ml-10 text-sm uppercase hover:border-b">
+              <Link
+                activeClass="active"
+                to="contact"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
                 Contact
-              </li>
-            </Link>
+              </Link>
+            </li>
           </ul>
           <div onClick={handleNav} className="md:hidden">
             <AiOutlineMenu size={25} />
@@ -83,47 +137,117 @@ const NavBar = () => {
                 <AiOutlineClose />
               </div>
             </div>
-            <div className="border-b border-gray-300 my-4">
-              <p className="w-[85%] md:w-[90%] py-4">
-                Let's build something legendary together
-              </p>
-            </div>
           </div>
           <div className="py-4 flex flex-col">
             <ul className="uppercase">
-              <Link href="/">
-                <li className="py-4 text-sm">Home</li>
+              <Link
+                activeClass="active"
+                to="home"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Home
+                </li>
               </Link>
-              <Link href="/about">
-                <li className="py-4 text-sm">About</li>
+              <Link
+                activeClass="active"
+                to="about"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  About
+                </li>
               </Link>
-              <Link href="/skills">
-                <li className="py-4 text-sm">Skills</li>
+              <Link
+                activeClass="active"
+                to="skills"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Skills
+                </li>
               </Link>
-              <Link href="/projects">
-                <li className="py-4 text-sm">Projects</li>
+              <Link
+                activeClass="active"
+                to="projects"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Projects
+                </li>
               </Link>
-              <Link href="/contact">
-                <li className="py-4 text-sm">Contact</li>
+              <Link
+                activeClass="active"
+                to="contact"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Contact
+                </li>
               </Link>
             </ul>
             <div className="pt-28">
               <p className="uppercase tracking-widest text-[#5651e5]">
                 Let's connect!
               </p>
-              <div className="flex items-center justify-between my-4 w-full sm:w-[60%]">
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                  <FaLinkedinIn />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                  <FaGithub />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                  <AiOutlineMail />
-                </div>
-                <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                  <BsFillPersonLinesFill />
-                </div>
+              <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
+                <a
+                  href="https://www.linkedin.com/in/jartisick/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                    <FaLinkedinIn />
+                  </div>
+                </a>
+                <a
+                  href="https://github.com/jartisick"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                    <FaGithub />
+                  </div>
+                </a>
+                <Link
+                  activeClass="active"
+                  to="contact"
+                  spy={true}
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                >
+                  <div
+                    onClick={() => setNav(!nav)}
+                    className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                  >
+                    <AiOutlineMail />
+                  </div>
+                </Link>
+                <a
+                  href="https://drive.google.com/file/d/1zLECuwyuPN6sQuf4jilvOY4OhZm2qAyK/view?usp=sharing"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                    <BsFillPersonLinesFill />
+                  </div>
+                </a>
               </div>
             </div>
           </div>
