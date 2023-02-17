@@ -33,7 +33,7 @@ const NavBar = () => {
           : "fixed w-full h-28 z-[100]"
       }
     >
-      <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16 pl-11 cursor-pointer">
+      <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16 pl-7">
         <Link
           activeClass="active"
           to="home"
@@ -41,6 +41,7 @@ const NavBar = () => {
           smooth={true}
           offset={50}
           duration={500}
+          className="cursor-pointer"
         >
           <img
             src="https://cdn-icons-png.flaticon.com/512/9213/9213492.png"
@@ -133,11 +134,11 @@ const NavBar = () => {
         >
           <div>
             <div className="flex w-full items-center justify-between">
-              <Image
-                src="/../public/assets/programacion.png"
-                width="78"
-                height="35"
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/9677/9677868.png"
                 alt="/"
+                width="80"
+                height="50"
               />
               <div
                 onClick={handleNav}
