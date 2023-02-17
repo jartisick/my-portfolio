@@ -33,13 +33,22 @@ const NavBar = () => {
           : "fixed w-full h-28 z-[100]"
       }
     >
-      <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16 pl-11">
-        <Image
-          src="/../public/assets/programacion.png"
-          alt="/"
-          width="80"
-          height="50"
-        />
+      <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16 pl-11 cursor-pointer">
+        <Link
+          activeClass="active"
+          to="home"
+          spy={true}
+          smooth={true}
+          offset={50}
+          duration={500}
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/9213/9213492.png"
+            alt="/"
+            width="80"
+            height="50"
+          />
+        </Link>
         <div className="pr-7">
           <ul className="hidden md:flex">
             <li className="ml-10 text-sm uppercase hover:border-b">
