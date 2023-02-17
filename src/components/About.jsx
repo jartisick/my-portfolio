@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { Link } from "react-scroll/modules";
 
 const About = () => {
   return (
@@ -28,9 +30,18 @@ const About = () => {
               communication. I consider myself a person who adapts to any
               environment and I am a fast learner if required.
             </p>
-            <p className="py-2 text-base text-gray-600 underline cursor-pointer">
-              Check out some of my lastest projects. 👨🏽‍💻
-            </p>
+            <Link
+              activeClass="active"
+              to="projects"
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              <p className="py-2 text-base text-gray-600 underline cursor-pointer">
+                Check out some of my lastest projects. 👨🏽‍💻
+              </p>
+            </Link>
           </div>
           <div className="w-full h-96 m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4 hover:scale-105 ease-in duration-300">
             <img
